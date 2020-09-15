@@ -1,19 +1,11 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :posts
-
   get 'home/index'
 
-  resources :posts
   resources :comments do
-    member do
-      post 'like'
-    end
+    resources :likes
   end
   resources :posts do
-    member do
-  		post 'like'
-  	end
+    resources :likes
   end
 
   devise_for :users
