@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :comment do
     user
-    # likeable { Faker::Book.title }
+    post
+    body { Faker::Hipster.sentences.join(' ') }
   end
 end
