@@ -9,22 +9,17 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %><br>
+
+  <p><b>Leave a comment: </b></p>
 
   <div class="field">
     <%= form.label :body %>
     <%= form.text_area :body %>
   </div>
 
-  <div class="field">
-    <%= form.label :post_id %>
-    <%= form.number_field :post_id %>
-  </div>
+  <%= form.hidden_field :post_id, value: @post.id %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
