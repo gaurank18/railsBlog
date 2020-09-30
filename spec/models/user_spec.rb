@@ -23,4 +23,20 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
   end
+
+  describe "#full_name" do
+    it "concatenates first name and last name with spaces" do
+      lukas = User.new(first_name: "Lukas", last_name: "Corbitt")
+
+      expect(lukas.full_name).to eq("Lukas Corbitt")
+    end
+  end
+
+  describe "#initials" do
+    it "concatenates first initial and last initial with spaces" do
+      lukas = User.new(first_name: "Lukas", last_name: "Corbitt")
+
+      expect(lukas.initials).to eq("L. C.")
+    end
+  end
 end

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :first_name, :last_name
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,6 +19,10 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   def full_name
-    [first_name, last_name].join(' ')
+    "#{first_name} #{last_name}"
+  end
+
+  def initials
+    "#{first_name[0].capitalize}. #{last_name[0].capitalize}."
   end
 end
